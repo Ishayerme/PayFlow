@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+payflow:
+  jwt:
+    secret: test-secret-that-is-at-least-32-bytes-long!
+  internal-key: test-internal-key
+  services:
+    account-url: http://account.test
+    notification-url: http://notification.test

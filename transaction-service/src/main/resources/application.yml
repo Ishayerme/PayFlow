@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: transaction-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/payflow_transactions}
+    username: ${DB_USERNAME:payflow}
+    password: ${DB_PASSWORD:payflow}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+payflow:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-secret-of-32-bytes-or-more}
+  internal-key: ${INTERNAL_KEY:change-me-internal-service-key}
+  services:
+    account-url: ${ACCOUNT_SERVICE_URL:http://localhost:8081}
+    notification-url: ${NOTIFICATION_SERVICE_URL:http://localhost:8083}

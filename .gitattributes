@@ -1,0 +1,4 @@
+# Shell scripts must keep Unix line endings or they fail inside Linux containers.
+mvnw text eol=lf
+*.sh text eol=lf
+mvnw.cmd text eol=crlf

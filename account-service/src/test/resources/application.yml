@@ -1,0 +1,16 @@
+# Test configuration. Integration tests replace the datasource with an
+# embedded PostgreSQL via @AutoConfigureEmbeddedDatabase.
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+payflow:
+  jwt:
+    secret: test-secret-that-is-at-least-32-bytes-long!
+    validity-minutes: 60
+  internal-key: test-internal-key
+  admin:
+    email: admin@payflow.test
+    password: Admin@12345

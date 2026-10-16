@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/payflow_accounts}
+    username: ${DB_USERNAME:payflow}
+    password: ${DB_PASSWORD:payflow}
+    hikari:
+      # Enough connections for many concurrent transfers to wait on row locks.
+      maximum-pool-size: 40
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Flyway owns the schema; Hibernate only checks it matches.
+    open-in-view: false
+
+payflow:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-secret-of-32-bytes-or-more}
+    validity-minutes: 60
+  internal-key: ${INTERNAL_KEY:change-me-internal-service-key}
+  admin:
+    email: ${ADMIN_EMAIL:admin@payflow.local}
+    password: ${ADMIN_PASSWORD:Admin@12345}
